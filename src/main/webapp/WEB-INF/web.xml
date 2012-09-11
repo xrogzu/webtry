@@ -45,4 +45,6 @@
 		<servlet-name>RestServlet</servlet-name>
 		<url-pattern>/accounts/*</url-pattern>
 	</servlet-mapping>
+	
+	
 </web-app>
