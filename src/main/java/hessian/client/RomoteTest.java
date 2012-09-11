@@ -9,7 +9,7 @@ public class RomoteTest {
 	
 	public static void main(String[] args) {
 		// hessian服务的url 其中hessian-v1是项目名
-		String url = "http://127.0.0.1:8082/testmvc/hessianService";
+		String url = "http://127.0.0.1:8080/webtry/hessianService";
 		
 		// 创建HessianProxyFactory实例
 		HessianProxyFactory factory = new HessianProxyFactory();

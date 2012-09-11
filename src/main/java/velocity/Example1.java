@@ -17,9 +17,9 @@ public class Example1
     	
     	 System.out.println(ClassLoader.getSystemResource("").getPath().toString());
          //RuntimeConstants.FILE_RESOURCE_LOADER_PATH =  ClassLoader.getSystemResource("").getPath().toString();
-         Velocity.setProperty(RuntimeConstants.FILE_RESOURCE_LOADER_PATH, ClassLoader.getSystemResource("").getPath().toString());
+         //Velocity.setProperty(RuntimeConstants.FILE_RESOURCE_LOADER_PATH, ClassLoader.getSystemResource("").getPath().toString());
          
-        // Velocity.setProperty("file.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+        Velocity.setProperty("file.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
         
         try
         {
@@ -48,7 +48,7 @@ public class Example1
         try
         {
         	
-            Velocity.mergeTemplate("example2.vm", "UTF-8", context, w);
+            Velocity.mergeTemplate("/template/example2.vm", "UTF-8", context, w);
             //Velocity.mergeTemplate("example2.vm", context, w );
         }
         catch (Exception e )
