@@ -4,8 +4,13 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 	
-  <display-name>webtry</display-name>
-  
+  	<display-name>webtry007</display-name>
+  	<description>网站描述</description>
+	<icon>
+		<small-icon>/images/small.gif</small-icon>
+		<large-icon>/images/large.gif</large-icon>
+	</icon>
+	
   <welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
@@ -35,6 +40,7 @@
 		<servlet-class>net.sf.serfj.RestServlet</servlet-class>
 		<load-on-startup>5</load-on-startup>
 	</servlet>
+	
 
 	<servlet-mapping>
 		<servlet-name>RestServlet</servlet-name>
@@ -47,4 +53,77 @@
 	</servlet-mapping>
 	
 	
+	<!--  ***********************  freemarker spring start  **************************** -->
+ 	<!--  Spring 服务层的配置文件 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:/spring/*-applicationContext.xml</param-value>
+    </context-param>
+     
+    <!--  Spring 容器启动监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+ 
+    <servlet>
+		<servlet-name>springmvc-freemarker</servlet-name>
+			<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+			<!-- DispatcherServlet 默认加载的bean文件是/WEB-INF/(servlet-name)-servlet.xml 可以通过配置contextConfigLocation来改变加载的文件 -->
+			<init-param>
+				<param-name>contextConfigLocation</param-name>
+				<!-- <param-value>/WEB-INF/classes/applicationContext.xml</param-value> -->
+				<!-- <param-value>classpath:/spring/springmvc-servlet.xml</param-value> -->
+				<param-value>classpath:/spring/freemarker-springmvc-servlet.xml</param-value>
+			</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+    <!--为DispatcherServlet建立映射 -->
+    <servlet-mapping>
+        <servlet-name>springmvc-freemarker</servlet-name>
+        <url-pattern>/freemarker/*</url-pattern>
+    </servlet-mapping>
+    <!--  ***********************  freemarker spring  end  **************************** -->
+	
+	 <!-- session-config包含一个子元素session-timeout.定义web站台中的session参数.  -->  
+   <session-config>  
+      <!-- 定义这个web站台所有session的有效期限.单位为分钟. 例子中为600分钟 -->  
+      <session-timeout>600</session-timeout>  
+   </session-config>  
+   
+   
+	<!-- error-page元素包含三个子元素error-code,exception-type和location.将错误代码(Error Code)或异常(Exception)的种类对应到web站台资源路径.-->  
+    <error-page>  
+        <!-- HTTP Error code -->  
+        <error-code>403</error-code>  
+        <!-- 在web站点内的相关资源路径  -->  
+        <location>/403.jsp</location>  
+    </error-page>  
+    <error-page>  
+        <error-code>404</error-code>  
+        <location>/404.jsp</location>  
+    </error-page>  
+    <error-page>  
+        <error-code>500</error-code>  
+        <location>/500.jsp</location>  
+    </error-page>  
+    <error-page>  
+        <!-- 一个完整名称的Java异常类型  -->  
+        <exception-type>java.lang.Exception</exception-type>  
+         <location>/exception.jsp</location>  
+    </error-page>   
+    
+      <!-- esource-ref元素包括五个子元素description,res-ref-name,res-type,res-auth,res-sharing-scope.利用JNDI取得站台可  -->  
+    <resource-ref>  
+        <!-- 资源说明  -->  
+        <description>JNDI JDBC DataSource of JSPBook</description>  
+        <!-- 资源名称  -->  
+        <res-ref-name>jdbc/sample_db</res-ref-name>  
+        <!-- 资源种类  -->  
+        <res-type>javax.sql.DataSoruce</res-type>  
+        <!-- 资源由Application或Container来许可,如下面为Container  -->  
+        <res-auth>Container</res-auth>  
+        <!-- 资源是否可以共享.默认值为 Shareable 可选择Shareable|Unshareable -->  
+        <res-sharing-scope>Unshareable</res-sharing-scope>   
+    </resource-ref>   
 </web-app>
