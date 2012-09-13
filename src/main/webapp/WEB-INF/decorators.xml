@@ -1,0 +1,34 @@
+<decorators defaultdir="/decorators">  
+    <!-- Any urls that are excluded will never be decorated by Sitemesh -->  
+    <excludes>  
+        <pattern>/exclude.jsp</pattern>  
+        <pattern>/exclude/*</pattern>  
+    </excludes>  
+  
+    <decorator name="main" page="main.jsp">  
+        <pattern>/*</pattern>  
+    </decorator>  
+</decorators>  
+<!-- 
+
+<decorators defaultdir="/decorators">
+
+        <decorator name="default" page="default.jsp">
+            <pattern>/*</pattern>
+        </decorator>
+
+        <decorator name="anotherdecorator" page="decorator2.jsp">
+            <pattern>/subdir/*</pattern>
+        </decorator>
+
+        <decorator name="htmldecorator" page="html.jsp">
+            <pattern>*.html</pattern>
+            <pattern>*.htm</pattern>
+        </decorator>
+
+        <decorator name="none">
+            These files will not get decorated.
+            <pattern>/anotherdir/*</pattern>
+        </decorator>
+
+    </decorators> -->
