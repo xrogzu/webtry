@@ -1,5 +1,8 @@
 package springmvc;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,7 +30,12 @@ public class HelloAnnotation {
 
 	  String message = "Hello World, Spring 3.0!";
 	  System.out.println(message);
-	  return new ModelAndView("hello", "message", message);
+	  //return new ModelAndView("hello", "message", message);
+	  
+	  Map map = new HashMap<String, String>();
+	  map.put("key1", "key1value");
+	  
+	  return new ModelAndView("hello", "message", map);
 	 }
 	
 	
