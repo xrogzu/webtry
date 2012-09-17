@@ -12,13 +12,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HelloAnnotation {
 
-	@RequestMapping("/hellome")
+	//http://127.0.0.1:8080/webtry/spring/hellomegogogo?name=xxx
+	@RequestMapping("/hellomegogogo")
 	@ResponseBody
 	public String hellome(@RequestParam String name, HttpServletRequest request, HttpServletResponse response){
 		
 		return "xxx";
 	}
 	
+	
+	//http://127.0.0.1:8080/webtry/spring/hello
 	 @RequestMapping("/hello")
 	 public ModelAndView helloWorld() {
 

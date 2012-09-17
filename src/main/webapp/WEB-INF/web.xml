@@ -94,7 +94,8 @@
         <!-- 初始化参数   不知道为什么，如果加上下面的初始化参数，运行时就会报404错：dispatcherservlet is not available -->
 			<init-param>
 				<param-name>contextConfigLocation</param-name>
-				<param-value>classpath:/spring/springmvc*-dispatcher-servlet.xml</param-value>
+				<!-- <param-value>classpath:/spring/springmvc*-dispatcher-servlet.xml</param-value> -->
+				<param-value>classpath:/spring/springmvc-annotation-dispatcher-servlet.xml</param-value>
 			</init-param>
 			<load-on-startup>21</load-on-startup>
     </servlet>
@@ -109,6 +110,7 @@
  	<!--  ***********************  UrlRewriteFilter test   start  **************************** -->
 	<!--  	http://127.0.0.1:8080/webtry/rewrite-status -->
 	<!-- http://127.0.0.1:8080/webtry/test/status/ -->
+	<!-- 
  	<filter>
         <filter-name>UrlRewriteFilter</filter-name>
         <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
@@ -118,22 +120,23 @@
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
-    </filter-mapping>
+    </filter-mapping> -->
+    
     <!--  ***********************  UrlRewriteFilter test   end  **************************** -->
     
     <!--  ***********************  sitemesh test   start  **************************** -->
-    <filter>  
+ <!--    <filter>  
         <filter-name>sitemesh</filter-name>  
         <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>  
-        <!-- <filter-class>org.sitemesh.webapp.SiteMeshFilter</filter-class> -->  
+        <filter-class>org.sitemesh.webapp.SiteMeshFilter</filter-class>  
     </filter>  
       
     <filter-mapping>  
         <filter-name>sitemesh</filter-name>  
         <url-pattern>/*</url-pattern>  
-    </filter-mapping>  
+    </filter-mapping>   -->
     
-   <jsp-config>
+  <!--  <jsp-config> -->
 	   <!-- <taglib>
 	      <taglib-uri>sitemesh-decorator</taglib-uri>
 	      <taglib-location>
@@ -146,7 +149,7 @@
 		      /WEB-INF/sitemesh-page.tld</taglib-location>
 	   </taglib> -->
 	   
-	   <taglib>
+	  <!--  <taglib>
 	        <taglib-uri>http://www.opensymphony.com/sitemesh/decorator</taglib-uri>
 	        <taglib-location>/WEB-INF/sitemesh-decorator.tld</taglib-location>
 	    </taglib>
@@ -156,7 +159,7 @@
 	        <taglib-location>/WEB-INF/sitemesh-page.tld</taglib-location>
 	    </taglib>
 	   
-	</jsp-config>
+	</jsp-config> -->
     
     <!--  ***********************  sitemesh test   end  **************************** -->
 	

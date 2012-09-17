@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HelloAnnotationJsonOr {
 
-	@RequestMapping("/hellome")
+	@RequestMapping("/hellome2")
 	@ResponseBody
 	public String hellome(@RequestParam String name, HttpServletRequest request, HttpServletResponse response){
 		
